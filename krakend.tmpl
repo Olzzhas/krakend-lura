@@ -1,0 +1,24 @@
+{
+    "$schema": "https://www.krakend.io/schema/v2.13/krakend.json",
+    "version": {{ add 2 1 }},
+    "name": "KrakenD - {{ .service.environment }}",
+    "port": {{ .service.port }},
+    "timeout": "{{ .service.timeout }}",
+    "cache_ttl": "{{ .service.cache_ttl }}",
+    "output_encoding": "{{ .service.output_encoding }}",
+    "host": ["{{ .service.backend_host }}"],
+    "endpoints": [
+        {{ range $idx, $ep := .service.endpoints }}
+        {{if $idx}},{{end}}
+        {
+            "endpoint": "{{ $ep.path }}",
+            "backend": [
+                {
+                    "host": ["{{ $.service.backend_host }}"],
+                    "url_pattern": "{{ $ep.backend }}"
+                }
+            ]
+        }
+        {{ end }}
+    ]
+}

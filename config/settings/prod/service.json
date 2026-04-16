@@ -1,0 +1,5 @@
+{
+  "backend_host": "https://api.myservice.com",
+  "environment": "prod",
+  "rate_limit": 5000
+}

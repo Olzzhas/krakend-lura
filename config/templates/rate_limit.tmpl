@@ -1,0 +1,6 @@
+{{define "rate_limit"}}
+"qos/ratelimit/router": {
+  "max_rate": {{ .service.rate_limit }},
+  "capacity": {{ .service.rate_limit }}
+}
+{{end}}

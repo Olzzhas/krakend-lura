@@ -1,0 +1,12 @@
+{
+    "endpoint": "/users",
+    "backend": [
+        {
+            "host": ["{{ .service.backend_host }}"],
+            "url_pattern": "/get"
+        }
+    ],
+    "extra_config": {
+        {{ template "rate_limit" . }}
+    }
+}

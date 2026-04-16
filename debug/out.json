@@ -1,0 +1,46 @@
+{
+    "$schema": "https://www.krakend.io/schema/v2.13/krakend.json",
+    "version": 3,
+    "name": "KrakenD - dev",
+    "port": 8080,
+    "timeout": "3s",
+    "cache_ttl": "0s",
+    "output_encoding": "json",
+    "host": ["http://backend:80"],
+    "endpoints": [
+        
+        
+        {
+            "endpoint": "/users",
+            "backend": [
+                {
+                    "host": ["http://backend:80"],
+                    "url_pattern": "/get"
+                }
+            ]
+        }
+        
+        ,
+        {
+            "endpoint": "/ip",
+            "backend": [
+                {
+                    "host": ["http://backend:80"],
+                    "url_pattern": "/ip"
+                }
+            ]
+        }
+        
+        ,
+        {
+            "endpoint": "/headers",
+            "backend": [
+                {
+                    "host": ["http://backend:80"],
+                    "url_pattern": "/headers"
+                }
+            ]
+        }
+        
+    ]
+}

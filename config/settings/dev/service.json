@@ -1,0 +1,14 @@
+{
+  "port": 8080,
+  "backend_host": "http://backend:80",
+  "timeout": "3s",
+  "cache_ttl": "0s",
+  "output_encoding": "json",
+  "environment": "dev",
+  "rate_limit": 1000,
+  "endpoints": [
+    { "path": "/users", "backend": "/get" },
+    { "path": "/ip", "backend": "/ip" },
+    { "path": "/headers", "backend": "/headers" }
+  ]
+}

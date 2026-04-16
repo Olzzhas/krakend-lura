@@ -1,0 +1,22 @@
+services:
+  krakend:
+    image: krakend:2.13.4
+    container_name: krakend
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./:/etc/krakend/
+      - ./debug/:/tmp/
+    environment:
+      - FC_ENABLE=1
+      - FC_OUT=/tmp/out.json          # ← /tmp вместо /etc/krakend/
+      - FC_PARTIALS=/etc/krakend/config/partials
+      - FC_SETTINGS=/etc/krakend/config/settings/dev
+      - FC_TEMPLATES=/etc/krakend/config/templates
+    command: ["run", "-dc", "krakend.tmpl"]
+
+  backend:
+    image: kennethreitz/httpbin
+    container_name: backend
+    ports:
+      - "4000:80"
