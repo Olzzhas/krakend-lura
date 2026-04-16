@@ -7,7 +7,12 @@
   "environment": "dev",
   "rate_limit": 1000,
   "endpoints": [
-    { "path": "/users", "backend": "/get" },
+    {
+      "path": "/users",
+      "backend": "/get",
+      "method": "GET",
+      "input_query_strings": ["page", "limit"]
+    },
     { "path": "/ip", "backend": "/ip" },
     { "path": "/headers", "backend": "/headers" }
   ]

@@ -12,6 +12,8 @@
         
         {
             "endpoint": "/users",
+            "method": "GET",
+            "input_query_strings": ["page","limit"],
             "backend": [
                 {
                     "host": ["http://backend:80"],
@@ -23,6 +25,7 @@
         ,
         {
             "endpoint": "/ip",
+            "method": "GET",
             "backend": [
                 {
                     "host": ["http://backend:80"],
@@ -34,6 +37,7 @@
         ,
         {
             "endpoint": "/headers",
+            "method": "GET",
             "backend": [
                 {
                     "host": ["http://backend:80"],

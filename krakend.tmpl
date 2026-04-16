@@ -12,6 +12,10 @@
         {{if $idx}},{{end}}
         {
             "endpoint": "{{ $ep.path }}",
+            "method": "{{ default "GET" $ep.method }}",
+            {{- if $ep.input_query_strings }}
+            "input_query_strings": {{ marshal $ep.input_query_strings }},
+            {{- end }}
             "backend": [
                 {
                     "host": ["{{ $.service.backend_host }}"],
